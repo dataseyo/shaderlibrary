@@ -1,5 +1,6 @@
 // REACT IMPORTS
 import React from 'react'
+import { Routes, Route, Link } from 'react-router-dom'
 
 // THREE IMPORTS
 // import * as THREE from 'three'
@@ -8,11 +9,19 @@ import { OrbitControls } from '@react-three/drei'
 
 // PROJECT IMPORTS
 import './App.css'
+import {
+  Nav,
+  ColorWave,
+  Wave,
+  PerlinBlob,
+  Flag,
+  Pattern,
+  MouseCast
+} from './components'
 
 // CAMERA
 const Camera = () => {
   const { camera } = useThree()
-  console.log(camera)
   camera.lookAt(0, 0, 0)
   return <></>
 }
@@ -24,24 +33,38 @@ const cameraSettings = {
   position: [0, 2, 5]
 }
 
-// APP
-function App() {
-
+function Scene() {
   return (
-    <Canvas
-      camera={cameraSettings}
-    >
-      <ambientLight />
-      <Camera/>
-      {/* <OrbitControls /> */}
-      <color attach="background" args={["black"]} />
+    <>
+      <Nav/>
+      <Canvas
+        className="canvas"
+        camera={cameraSettings}
+      >
+        <ambientLight />
+        <Camera/>
+        <OrbitControls />
+        <color attach="background" args={["#000000"]} />
 
-      {/* test mesh */}
-      <mesh position={[0, 0, 0]}>
-        <sphereGeometry />
-        <meshBasicMaterial color="lightblue" />
-      </mesh>
-    </Canvas>
+        <Routes>
+          <Route path="/" element={<Wave/>}/>
+          <Route path="/colorwave" element={<ColorWave/>}/>
+          <Route path="/perlinblob" element={<PerlinBlob/>}/>
+          <Route path="/flag" element={<Flag/>}/>
+          <Route path="/pattern" element={<Pattern/>}/>
+          <Route path="/mousecast" element={<MouseCast/>}/>
+        </Routes>
+      </Canvas>
+    </>
+
+  )
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Scene/>
+    </div>
   )
 }
 
