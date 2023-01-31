@@ -8,6 +8,7 @@ import PerlinBlob from "./PerlinBlob/PerlinBlob";
 import Flag from "./Flag/Flag";
 import Pattern from "./Pattern/Pattern";
 import MouseCast from "./MouseCast/MouseCast";
+import Particles from "./Particles/Particles";
 
 export {
     Nav,
@@ -16,5 +17,6 @@ export {
     PerlinBlob,
     Flag,
     Pattern,
-    MouseCast
+    MouseCast,
+    Particles
 }

@@ -8,11 +8,6 @@
 }
 
 
-.nav {
-position: relative;
-z-index: 1;
-}
-
 .canvas {
   pointer-events: none;
   position: absolute !important;

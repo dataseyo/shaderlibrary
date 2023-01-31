@@ -16,7 +16,8 @@ import {
   PerlinBlob,
   Flag,
   Pattern,
-  MouseCast
+  MouseCast,
+  Particles
 } from './components'
 
 // CAMERA
@@ -45,6 +46,7 @@ function Scene() {
         <Camera/>
         <OrbitControls />
         <color attach="background" args={["#000000"]} />
+        {/* <axesHelper args={[1]}/> */}
 
         <Routes>
           <Route path="/" element={<Wave/>}/>
@@ -53,6 +55,7 @@ function Scene() {
           <Route path="/flag" element={<Flag/>}/>
           <Route path="/pattern" element={<Pattern/>}/>
           <Route path="/mousecast" element={<MouseCast/>}/>
+          <Route path="/particles" element={<Particles/>}/>
         </Routes>
       </Canvas>
     </>
